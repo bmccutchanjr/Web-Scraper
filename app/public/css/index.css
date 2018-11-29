@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One');
+
+*
+{   box-sizing: border-box;
+}
+
+:root
+{   --color: white;
+}
+
+body
+{   font-family: sans-serif;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px;
+}
+
+header
+{   background: rgba(255, 0, 0, 0.5);
+    font-family: "Fredoka One", cursive;
+    font-size: 36px;
+    margin: 0px;
+    padding: 25px;
+    text-align: center;
+}
+
+main
+{   background: rgba(0, 255, 0, 0.5);
+}
+
+/*                                         */
+/* style specific to sticky footer         */
+/*                                         */
+
+body, html
+{   height: 100%;
+}
+
+.wrapper
+{   background: rgba(0, 255, 255, 0.5);
+    height: auto;
+    margin-bottom: -30px;
+    min-height: 100%;
+}
+
+.push
+{   background: yellow;
+    height: 30px;
+}
+
+footer
+{   background: red;
+    font-size: 10px;
+    padding: 10px;
+}
+
+/*                                         */
+/* media queries for responsive design     */
+/*                                         */
+
+@media screen and (max-width: 572px)
+{
+}
