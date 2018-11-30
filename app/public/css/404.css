@@ -1,40 +1,35 @@
 @import url('https://fonts.googleapis.com/css?family=Fredoka+One');
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-
 *
 {   box-sizing: border-box;
 }
 
 :root
-{   --color: white;
+{   --color: black;
 }
 
 body
-{   font-family: "Roboto", sans-serif;
-    font-size: 14px;
+{   background: gray;
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
     margin: 0px;
     padding: 0px;
 }
 
 header
-{   background: rgba(255, 0, 0, 0.5);
-    font-family: "Fredoka One", cursive;
-    font-size: 8vh;
-    height: auto;
-    min-height: 30vh;
+{   font-family: "Fredoka One", cursive;
+    font-size: 10vh;
+    height: 30vh;
     margin: 0px;
     padding: 10vh;
     text-align: center;
 }
 
-header h2
-{   font-size: 5vh;
-    margin: 5px;
-}
-
 main
-{   background: rgba(0, 255, 0, 0.5);
+{   min-height: 50vh;
+    text-align: center;
+    vertical-align: center;
 }
 
 /*                                         */
@@ -46,15 +41,13 @@ body, html
 }
 
 .wrapper
-{   background: rgba(0, 255, 255, 0.5);
-    height: auto;
+{   height: auto;
     margin-bottom: -33px;
     min-height: 100%;
 }
 
 .push
-{   background: yellow;
-    height: 33px;
+{   height: 33px;
 }
 
 footer
@@ -79,5 +72,7 @@ footer .page-name
 /*                                         */
 
 @media screen and (max-width: 572px)
-{
+{   header
+    {   font-size: 8vh;
+    }
 }

@@ -3,7 +3,7 @@
 // Require the dependencies
 const chalk = require("chalk");
 const express = require("express");
-const model = require("..data/model.js");
+// const model = require("..data/model.js");
 
 // Configure ExpressJS
 const app = express();
