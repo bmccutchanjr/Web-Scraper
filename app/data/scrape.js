@@ -37,15 +37,6 @@ function scrape ()
 
             if (h2 === "") h2 = link;
 
-            // if (h2 === "2020 Ramps Up")
-            // {
-                // console.log(chalk.yellow("h2: ", h2));
-                // console.log("href: ", href);
-                // console.log("link: ", link);
-                // console.log("meta: ", meta);
-                // console.log("img: ", img);
-            // }
-
             scrapeDb.addNewArticle (h2, link, href, img, img)
         })
 
