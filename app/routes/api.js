@@ -3,7 +3,7 @@
 // Require the dependencies
 const chalk = require("chalk");
 const express = require("express");
-// const model = require("..data/model.js");
+const scrapeDb = require("../data/scrapeDb.js");
 
 // Configure ExpressJS
 const app = express();
@@ -19,20 +19,12 @@ router
     console.log(chalk.red("requesting: ", request.url));
     next();
 })
-.get("/some endpoint", function(request, response)
-{   // A GET request has been made for some endpoint.  Respond with the appropriate data
+.get("/allArticles", function(request, response)
+{   // A GET request has been made for the /artcles/getAll endpoint
 
+    var data = scrapeDb.getAllArticles();
 
-
-//     model.method (request.params.data, function(status, data)
-//     {   // serve data returned from the model
-// 
-//         if (status != 200)
-//             response.status(status).send(data);
-//         else
-//             response.status(200).json(data);
-
-
+    response.json(data);
 
 })
 .post("/some endpoint", function(request, response)

@@ -7,12 +7,12 @@ const articles = [];
 
 const scrapeDb =
 {
-    getAllArticles: function()
+    getAllArticles: function(callback)
     {   // get all of the articles in the database
 
         // no database at the moment.  The articles are an array of objects...
 
-        return articles;
+        callback(articles);
     },
 
     addNewArticle: function(headline, link, href, meta, img)

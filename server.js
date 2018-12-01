@@ -1,5 +1,6 @@
 // Require the dependencies
 const express = require('express');
+const handlebars = require('express-handlebars');
 const apiRoutes = require ("./app/routes/api.js")
 const htmlRoutes = require ("./app/routes/html.js")
 
@@ -7,6 +8,10 @@ const htmlRoutes = require ("./app/routes/html.js")
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// Configure Express-Handlebars
+app.engine("handlebars", handlebars({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 app.use('/api', apiRoutes);
 app.use('/', htmlRoutes);

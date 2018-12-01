@@ -1,4 +1,4 @@
-// scrape.js is the model middleware.  It retrieves the CBS News website and scrapes news stories from the
+// scrape.js is the AJAX middleware.  It retrieves the CBS News website and scrapes news stories from the
 // source text.  We're interested in the headline of the article as well as a link to the complete article
 // on cbsnews.com.
 //
@@ -6,7 +6,7 @@
 // text as a headline.  I'm going with the second option.  They're still articles, but may not be hard news.
 // An article about the domestic cat (feral strays and even pet cats) as an 'invasive species' is one example.
 //
-// scrape.js also uses the database module to add scrapped articles to the database. 
+// scrape.js also uses the database module to add scrapped articles to the database.
 
 // require the dependencies
 const axios = require("axios");
@@ -37,7 +37,7 @@ function scrape ()
 
             if (h2 === "") h2 = link;
 
-            scrapeDb.addNewArticle (h2, link, href, img, img)
+            scrapeDb.addNewArticle (h2, link, href, meta, img)
         })
 
         console.log(JSON.stringify(scrapeDb.getAllArticles(), null, 2))
@@ -48,4 +48,4 @@ function scrape ()
     })
 }
 
-scrape ();
+module.exports = scrape;
