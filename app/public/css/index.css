@@ -40,6 +40,20 @@ main
 {   background: rgba(0, 255, 0, 0.5);
 }
 
+button
+{   background: blue;
+    border: 1px solid blue;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+    text-align: center;
+}
+
+button:hover
+{   background: white;
+    color: blue;
+}
+
 /*                                         */
 /* the articles                            */
 /*                                         */
@@ -108,11 +122,8 @@ main
 
 .article-buttons button
 {   background: var(--button-background);
-    border: 1px solid var(--button-background);
-    border-radius: 5px;
+    border-color: var(--button-background);
     color: var(--article-background);
-    padding: 5px;
-    text-align: center;
 }
 
 .article-buttons button:hover

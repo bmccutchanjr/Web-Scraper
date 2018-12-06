@@ -30,14 +30,15 @@ router
 .get("/", function(request, response)
 {   // Load the home page...requires information from the database
 
-console.log(chalk.yellow("/"))
-    scrapeDb.getAllArticles(function(data)
-    {   var news =
-        {
-            articles: data
-        };
-console.log(chalk.yellow(JSON.stringify(news, null, 2)))
-        response.render("index", news);
+    scrapeDb.getAllArticles()
+    .then(function(data)
+    {
+console.log(chalk.yellow(data))
+        response.render("index", data);
+    })
+    .catch(function(error)
+    {
+        response.status(500).json(error);
     });
 })
 .use(express.static(path.join(__dirname, "../public")))
