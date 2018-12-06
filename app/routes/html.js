@@ -4,7 +4,7 @@
 // Require the dependencies
 const chalk = require("chalk");
 const express = require("express");
-// const handlebars = require("express-handlebars");
+const mongoose = require("mongoose");
 const path = require("path");
 const scrapeDb = require("../data/scrapeDb.js");
 
@@ -12,6 +12,9 @@ const scrapeDb = require("../data/scrapeDb.js");
 const app = express();
 const router = express.Router ();
 app.use ("/", router);
+
+// Connect to the Mongo DB
+mongoose.connect("mongodb://localhost/NewsScraper");
 
 // Configure Express-Handlebars
 // app.engine("handlebars", handlebars({ defaultLayout: "main" }));

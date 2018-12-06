@@ -3,6 +3,7 @@
 // Require the dependencies
 const chalk = require("chalk");
 const express = require("express");
+const mongoose = require("mongoose");
 const scrapeDb = require("../data/scrapeDb.js");
 const scrape = require("../data/scrape.js");
 
@@ -10,6 +11,9 @@ const scrape = require("../data/scrape.js");
 const app = express();
 const router = express.Router ();
 app.use ("/", router);
+
+// Connect to the Mongo DB
+mongoose.connect("mongodb://localhost/NewsScraper");
 
 router
 .use (function (request, response, next)

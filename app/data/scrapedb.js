@@ -1,10 +1,10 @@
 // scrapedb.js id the middleware responsible for getting data into and out of the database.
 
 // require the dependencies
-// right now there are none...
 const chalk = require("chalk");
+const db = require ("./db.js");
 
-const articles = [];
+// const articles = [];
 
 const scrapeDb =
 {
@@ -15,8 +15,15 @@ const scrapeDb =
 
         return new Promise ((resolve, reject) =>
         {
-            if (articles) resolve(articles)
-            reject(new Error ("Unspecified error occured"))
+            // if (articles) resolve(articles)
+            db.Article
+            .find()
+            .then(function(data)
+            {   resolve(data)
+            })
+            .catch(function(error)
+            {   reject(error)
+            })
         })
     },
 
@@ -36,13 +43,20 @@ const scrapeDb =
         if (!found)
         {   // I only want to add new articles to the database.
 
-            articles.push(
-                {   headline,
-                    link,
-                    href,
-                    img,
-                    meta
-                })
+            // articles.push(
+            //     {   headline,
+            //         link,
+            //         href,
+            //         img,
+            //         meta
+            //     })
+            db.Article.create(
+            {   headline,
+                link,
+                href,
+                img,
+                meta
+            })
         }
     }
 }
