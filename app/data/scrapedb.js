@@ -1,4 +1,4 @@
-// scrapedb.js id the middleware responsible for getting data into and out of the database.
+// scrapeDb.js id the middleware responsible for getting data into and out of the database.
 
 // require the dependencies
 const chalk = require("chalk");
@@ -19,7 +19,9 @@ const scrapeDb =
             db.Article
             .find()
             .then(function(data)
-            {   resolve(data)
+            {   
+console.log (chalk.yellow(JSON.stringify(data, null, 2)))                
+                resolve(data)
             })
             .catch(function(error)
             {   reject(error)

@@ -1,7 +1,3 @@
-{{!-- {{#each news}}
-ding
-    {{> articles/article-block}}
-{{/each}} --}}
 {{#each news}}
 <div class="article-wrapper">
 	<div class="article-item">
@@ -17,7 +13,7 @@ ding
                 {{meta}}
             </div>
             <div class="article-buttons">
-                <button>COMMENTS</button>
+                <button value="{{_id}}">COMMENTS</button>
             </div>
         </div>
 	</div>
