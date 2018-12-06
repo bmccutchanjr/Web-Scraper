@@ -10,10 +10,6 @@ $(document).ready(function()
         $.get ("/api/scrape")
         .then (function(response)
         {
-console.log(".then()")
-console.log(JSON.stringify(response, null, 2))
-console.log(response.status)
-console.log(typeof response.status)
             // if(response.status != 200)
             // {   // something didn't go right on the server -- tell the user
             //     console.log(response.status)
@@ -25,7 +21,6 @@ console.log(typeof response.status)
         })
         .catch (function(error)
         {   // an error occured -- tell the user
-console.log(".catch()")
             console.log (error)
         })
     })

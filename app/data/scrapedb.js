@@ -8,23 +8,13 @@ const articles = [];
 
 const scrapeDb =
 {
-//     getAllArticles: function(callback)
-//     {   // get all of the articles in the database
-// // console.log(chalk.magenta("articles: ", articles));
-//
-//         // no database at the moment.  The articles are an array of objects...
-//
-//         callback(articles);
-//     },
     getAllArticles: function()
     {   // get all of the articles in the database
-// console.log(chalk.magenta("articles: ", articles));
 
         // no database at the moment.  The articles are an array of objects...
 
         return new Promise ((resolve, reject) =>
         {
-// console.log(chalk.magenta("resolving Promise"));
             if (articles) resolve(articles)
             reject(new Error ("Unspecified error occured"))
         })
@@ -32,7 +22,6 @@ const scrapeDb =
 
     addNewArticle: function(headline, link, href, meta, img)
     {   // add an article to the database
-// console.log(chalk.magenta("addNewArticle"));
 
         // I could use rest operator in the parameter list, but naming each of them makes their purpose more
         // apparent
@@ -54,7 +43,6 @@ const scrapeDb =
                     img,
                     meta
                 })
-// console.log(chalk.magenta("articles: ", articles));
         }
     }
 }

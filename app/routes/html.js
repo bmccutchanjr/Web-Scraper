@@ -30,14 +30,16 @@ router
 .get("/", function(request, response)
 {   // Load the home page...requires information from the database
 
+console.log(chalk.yellow("/"))
     scrapeDb.getAllArticles()
     .then(function(data)
     {
 console.log(chalk.yellow(data))
-        response.render("index", data);
+        response.render("index", { news: data });
     })
     .catch(function(error)
     {
+console.log(chalk.yellow(".catch(", error, ")"))
         response.status(500).json(error);
     });
 })
