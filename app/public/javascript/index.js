@@ -1,3 +1,53 @@
+function theComments (data)
+{   // The comments (if there were any) were received when the article was retrieved.  All that reamins is
+    // to format them for display
+    
+    $(".comments-div").empty();
+
+    for (let i=0; i<data.length; i++)
+    {
+        const p1 = $("<p>").text(data[i].name + " says:");
+        const p2 = $("<p>").text(data[i].comment);
+        $(".comments-div")
+            .append(p1)
+            .append(p2)
+            .append($("<hr>"));
+    }
+}
+
+function getOneArticle (id, data)
+{   // Get all of the data associated with one article.  That includes the article meta data and any comments
+
+    const imgDiv = $(".headline-image");
+
+    const image = $("<img>");
+    image.attr("src", data[0].img);
+
+    imgDiv
+        .empty()
+        .append(image)
+
+    $(".headline-text").empty()
+
+    const p1 = $("<p>")
+        .addClass("headline-p")
+        .text(data[0].headline);
+    const p2 = $("<p>").text(data[0].meta)
+    const a = $("<a>")
+        .attr("href", data[0].href)
+        .text(data[0].link);
+    const p3 = $("<p>").append(a)
+    $(".headline-text")
+        .append(p1)
+        .append(p2)
+        .append(p3);
+
+    theComments (data[0].comment)
+
+    $("#articles-section").css("display", "none");
+    $("#comments-section").css("display", "block");
+}
+
 $(document).ready(function()
 {
     $("#scrape-button").click(function(event)
@@ -10,14 +60,7 @@ $(document).ready(function()
         $.get ("/api/scrape")
         .then (function(response)
         {
-            // if(response.status != 200)
-            // {   // something didn't go right on the server -- tell the user
-            //     console.log(response.status)
-            // }
-            // else
-            {   // everything seemed to go correctly...reload the page to display the data
-                window.location.reload();
-            }
+            window.location.reload();
         })
         .catch (function(error)
         {   // an error occured -- tell the user
@@ -37,21 +80,7 @@ $(document).ready(function()
         $.get("/api/getOneArticle/" + id)
         .then(function(data)
         {
-            const imgDiv = $(".headline-image");
-
-            const image = $("<img>");
-            image.attr("src", data[0].img);
-
-            imgDiv
-                .empty()
-                .append(image)
-
-            $(".headline-text")
-                .empty()
-                .text(JSON.stringify(data));
-
-            $("#articles-section").css("display", "none");
-            $("#comments-section").css("display", "block");
+            getOneArticle(id, data);
         })
         .catch(function(error)
         {
@@ -63,11 +92,8 @@ $(document).ready(function()
     {   // event handler for .comment-form SUMBIT button
         event.preventDefault();
 
-// alert("WTF!")
         const name = $("#name-input").val().trim();
-// alert("name: " + name);
         const comment = $("#comment-input").val().trim();
-// alert("comment: " + comment);
         const data = { name, comment };
 
         $.post("/api/addComment/" + id, data, function(data)
@@ -77,7 +103,7 @@ $(document).ready(function()
 
             $.get("/api/getOneArticle/" + id)
             .then(function(data)
-            {   console.log(JSON.stringify(data, null, 2))
+            {   getOneArticle(id, data);
             })
         })
         .catch(function(error)

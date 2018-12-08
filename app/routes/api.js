@@ -13,7 +13,7 @@ const router = express.Router ();
 app.use ("/", router);
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/NewsScraper");
+mongoose.connect("mongodb://localhost/NewsScraper", { useNewUrlParser: true });
 
 router
 .use (function (request, response, next)
