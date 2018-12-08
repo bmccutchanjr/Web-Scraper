@@ -35,6 +35,7 @@ function getOneArticle (id, data)
     const p2 = $("<p>").text(data[0].meta)
     const a = $("<a>")
         .attr("href", data[0].href)
+        .attr("target", "_blank")
         .text(data[0].link);
     const p3 = $("<p>").append(a)
     $(".headline-text")
