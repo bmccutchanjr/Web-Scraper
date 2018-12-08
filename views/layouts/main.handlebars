@@ -11,20 +11,45 @@
 
 <body>
     <div class="wrapper">
-        <header class="header">Web Scraper
-            <h2>CBS News</h2>
-            <button id="scrape-button">SCRAPE MORE</button>
-        </header>
+        <section id="articles-section">
+            <header class="articles-header">Web Scraper
+                <h2>CBS News</h2>
+                <button id="scrape-button">SCRAPE MORE</button>
+            </header>
 
-        <main class="main">
-            {{{ body }}}
-        </main>
+            <main class="articles-main">
+                {{{ body }}}
+            </main>
+        </section>
+        <section id="comments-section">
+            <header class="comments-header">CBS News Web Scraper</header>
+
+            <div class="comments-headline">
+                <div class="headline-image"></div>
+                <div class="headline-text"></div>
+            </div>
+
+            <main class="comments-main">
+                <div class="comments-div"></div>
+                <form class="comment-form">
+                    <label id="name-label" for="name-input">Name</label>
+                    <input class="input" id="name-input" name="name-input" placeholder="Your name" type="text">
+
+                    {{!-- <label id="email-label" for="email-input">Email</label> --}}
+                    {{!-- <input class="input" id="email-input" name="email-input" placeholder="Your email address" type="email"> --}}
+
+                    <label id="comment-label" for="comment-input">Comments</label>
+                    <textarea class="input" id="comment-input" name="comment-input" ></textarea>
+
+                    <button id="submit-button">POST YOUR COMMENTS</button>
+                </form>
+            </main>
+        </section>
         <div class="push"></div>
     </div>
 
     <footer>
         <div>All Rights Reserved</div>
-        <div class="page-name">index.html</div>
     </footer>
 </body>
 

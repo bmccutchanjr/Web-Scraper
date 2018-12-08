@@ -16,11 +16,6 @@ app.use ("/", router);
 // Connect to the Mongo DB
 mongoose.connect("mongodb://localhost/NewsScraper");
 
-// Configure Express-Handlebars
-// app.engine("handlebars", handlebars({ defaultLayout: "main" }));
-// app.set("view engine", "handlebars");
-
-
 router
 .use (function (request, response, next)
 {   // This always happens always happens whenever any route is served in this module.  At the moment
@@ -33,16 +28,13 @@ router
 .get("/", function(request, response)
 {   // Load the home page...requires information from the database
 
-console.log(chalk.yellow("/"))
     scrapeDb.getAllArticles()
     .then(function(data)
     {
-console.log(chalk.yellow(data))
         response.render("index", { news: data });
     })
     .catch(function(error)
     {
-console.log(chalk.yellow(".catch(", error, ")"))
         response.status(500).json(error);
     });
 })

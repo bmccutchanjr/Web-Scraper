@@ -37,33 +37,31 @@ router
         response.status(500).send(error);
     })
 })
-.post("/some endpoint", function(request, response)
-{   // A POST request has been made for some endpoint.  Respond with the appropriate data
+.get("/getOneArticle/:id", function(request, response)
+{   // A GET request has been made for the /api/getOneComment endpoint
 
-
-
-//     model.method (request.body.data, function(status, data)
-//     {   // serve data returned from the model
-// 
-//         if (status != 200)
-//             response.status(status).send(data);
-//         else
-//             response.status(200).json(data);
-
-
-
+    scrapeDb.getOneArticle (request.params.id)
+    .then(function(data)
+    {
+        response.status(200).json(data);
+    })
+    .catch(function(error)
+    {
+        response.status(500).send(error);
+    })
 })
-.put("/some endpoint", function(request, response)
-{   // A PUT request has been made for some endpoint.  Respond with the appropriate data
+.post("/addComment/:id", function(request, response)
+{   // A POST request has been made for the /newComment endpoint.  Insert the comment in the database
 
-
-
-})
-.delete("/some endpoint", function(request, response)
-{   // A DELETE request has been made for some endpoint.  Respond with the appropriate data
-
-
-
+    scrapeDb.addComment(request.params.id, request.body)
+    .then(function(data)
+    {
+        response.status(200).send("comment was added");
+    })
+    .catch(function(error)
+    {
+        response.status(500).send(error);
+    })
 })
 
 module.exports = router;

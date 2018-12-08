@@ -4,8 +4,6 @@
 const chalk = require("chalk");
 const db = require ("./db.js");
 
-// const articles = [];
-
 const scrapeDb =
 {
     getAllArticles: function()
@@ -15,12 +13,10 @@ const scrapeDb =
 
         return new Promise ((resolve, reject) =>
         {
-            // if (articles) resolve(articles)
             db.Article
             .find()
             .then(function(data)
             {   
-console.log (chalk.yellow(JSON.stringify(data, null, 2)))                
                 resolve(data)
             })
             .catch(function(error)
@@ -35,31 +31,46 @@ console.log (chalk.yellow(JSON.stringify(data, null, 2)))
         // I could use rest operator in the parameter list, but naming each of them makes their purpose more
         // apparent
 
-        // no database at the moment.  The articles are in an array of objects
-        var found = articles.find(function(article)
-        {   // don't want to duplicate articles in the database, so search the database for the headline
+        const found = db.Article.find({ headline: headline })
 
-            return headline === article.headline 
+        db.Article.create(
+        {   headline,
+            link,
+            href,
+            img,
+            meta
         })
+    },
 
-        if (!found)
-        {   // I only want to add new articles to the database.
+    getOneArticle: function(id)
+    {   // add an article to the database
 
-            // articles.push(
-            //     {   headline,
-            //         link,
-            //         href,
-            //         img,
-            //         meta
-            //     })
-            db.Article.create(
-            {   headline,
-                link,
-                href,
-                img,
-                meta
+        return new Promise ((resolve, reject) =>
+        {   const data = db.Article.find({ _id: id })
+            .populate("comment")
+            .then(function(data)
+            {   resolve(data)
+            }) 
+            .catch(function(error)
+            {   reject(error)
             })
-        }
+        })
+    },
+
+    addComment: function(id, data)
+    {   // add an comment for the indicated article
+
+        return new Promise ((resolve, reject) =>
+        {   db.Comment.create(data)
+            .then(function(dbComment)
+            {                
+                resolve (db.Article.findOneAndUpdate({ _id: id }, { $push: { comment: dbComment._id }}, { new: true }))
+            })
+            .catch(function(error)
+            {
+                reject (error)
+            })
+        })
     }
 }
 

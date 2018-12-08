@@ -5,16 +5,14 @@
             {{headline}}
         </div>
         <div class="article-details">
-            <div class="article-img">
-                <img src="{{img}}" alt="{{meta}}">
-            </div>
+            {{!-- <div class="article-img"> --}}
+                {{!-- <img src="{{img}}" alt="{{meta}}"> --}}
+            {{!-- </div> --}}
             <div class="article-text">
                 <a href={{href}} target="_blank">{{link}}</a><br>
                 {{meta}}
             </div>
-            <div class="article-buttons">
-                <button value="{{_id}}">COMMENTS</button>
-            </div>
+            <button class="article-button" value="{{_id}}">COMMENTS</button>
         </div>
 	</div>
 </div>

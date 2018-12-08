@@ -23,9 +23,10 @@ const articleSchema = new Schema(
     {   type:     String,
     },
     comment:
-    {   type:   Schema.Types.ObjectId,
-        ref:    "Comment"
-    }
+    [   {   type:   Schema.Types.ObjectId,
+            ref:    "Comment"
+        }
+    ]
 })
 
 var Article = mongoose.model("Article", articleSchema);

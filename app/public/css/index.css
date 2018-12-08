@@ -20,20 +20,35 @@ body
     padding: 0px;
 }
 
-header
+.articles-header
 {   background: rgba(255, 0, 0, 0.5);
     font-family: "Fredoka One", cursive;
-    font-size: 8vh;
-    height: auto;
-    min-height: 30vh;
+    font-size: 40px;
+    height: 250px;
     margin: 0px;
-    padding: 10vh;
+    padding: 50px;
     text-align: center;
 }
 
-header h2
-{   font-size: 5vh;
+.articles-header h2
+{   font-size: 30px;
     margin: 5px;
+}
+
+#comments-section
+{   display: none;
+}
+
+.comments-header
+{   background: rgba(255, 0, 0, 0.5);
+    font-family: "Fredoka One", cursive;
+    font-size: 24px;
+    height: 60px;
+    margin: 0px auto;
+    padding: 15px;
+    text-align: left;
+    max-width: 900px;
+    width: 90vw;
 }
 
 main
@@ -132,6 +147,62 @@ button:hover
 }
 
 /*                                         */
+/* style specific to the comments          */
+/*                                         */
+
+.comments-wrapper
+{   background: rgba(0, 0, 255, 0.5);
+    width: 100%;
+}
+
+.comments-div
+{   border: 2px solid var(--article-background);
+    border-radius: 5px;
+    margin: 0px auto 10px;
+    max-width: 900px;
+    width: 90vw;
+}
+
+/*                                         */
+/* style specific to the form              */
+/*                                         */
+
+.comment-form
+{   border: 2px solid black;
+    border-radius: 5px;
+    margin: 0px auto;
+    max-width: 900px;
+    padding: 10px;
+    width: 90vw;
+}
+
+.input
+{   border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+}
+
+textarea
+{   height: 100px;
+    margin-bottom: 10px;
+}
+
+#submit-button
+{   background: var(--button-background);
+    border: 1px solid var(--button-background);
+    border-radius: 5px;
+    border-color: var(--button-background);
+    color: var(--button-color);
+    padding: 5px;
+}
+
+#submit-button:hover
+{   background: var(--button-color);
+    color: var(--button-background);
+}
+
+/*                                         */
 /* style specific to sticky footer         */
 /*                                         */
 
@@ -142,13 +213,13 @@ body, html
 .wrapper
 {   background: rgba(0, 255, 255, 0.5);
     height: auto;
-    margin-bottom: -33px;
+    margin-bottom: -31px;
     min-height: 100%;
 }
 
 .push
 {   background: yellow;
-    height: 33px;
+    height: 31px;
 }
 
 footer

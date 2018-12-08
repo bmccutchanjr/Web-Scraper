@@ -6,12 +6,13 @@ const Schema = mongoose.Schema;
 
 const commentSchema = new Schema(
 {
-    headline:
+    name:
     {   type:     String,
         required: true
     },
     comment:
     {   type:     String,
+        required: true
     }
 })
 
