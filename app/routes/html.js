@@ -14,7 +14,24 @@ const router = express.Router ();
 app.use ("/", router);
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/NewsScraper");
+// mongoose.connect("mongodb://localhost/NewsScraper");
+const mongoURI = "mongodb://localhost/NewsScraper";
+
+if (process.env.MONGODB_URI)
+    mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
+    // mongoose.connect("mongodb://heroku_ggpvrzhg:heroku_ggpvrzhg@ds229474.mlab.com:29474/heroku_ggpvrzhg", { useNewUrlParser: true })
+else
+    mongoose.connect(mongoURI, { useNewUrlParser: true });
+
+const db = mongoose.connection;
+
+db.on("error", function(error)
+{   console.log(chalk.red("Mongoose Error: ", error))
+})
+
+db.once("open", function()
+{   console.log("Mongoose has connected to the MongoDB server")
+})
 
 router
 .use (function (request, response, next)
