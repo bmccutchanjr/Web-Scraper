@@ -8,7 +8,7 @@ You can try it out [here](https://bmccutchanjr-web-scraper.herokuapp.com) or che
 
 ## Web Scraping
 
-Web scraping is a technique of retrieving data not from web APIs. but from the HTML file browsers wouild use to render a page.  In my case, I'm using Axios to retrieve the page at www.cbsnews.com and Cheerio to pull data from the source in the same way jQuery would be used to interact with the browser DOM.  Meta data is retrieved for the various articles on the CBS page and stored in a MongoDB database.  That same data is used to build links to the CBS articles using Express-Handlebars.
+Web scraping is a technique of retrieving data not from web APIs. but from the same HTML file a browser would use to render a page.  In my case, I'm using Axios to retrieve the page at www.cbsnews.com and Cheerio to pull data from the source in the same way jQuery would be used to interact with the browser DOM.  Meta data is retrieved for the various articles on the CBS page and stored in a MongoDB database.  That same data is used to build links to the CBS articles using Express-Handlebars.
 
 ## The Database
 
