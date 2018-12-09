@@ -17,8 +17,8 @@ app.use ("/", router);
 const mongoURI = "mongodb://localhost/NewsScraper";
 
 if (process.env.MONGODB_URI)
-    // mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
-    mongoose.connect("mongodb://heroku_ggpvrzhg:heroku_ggpvrzhg@ds229474.mlab.com:29474/heroku_ggpvrzhg", { useNewUrlParser: true })
+    mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
+    // mongoose.connect("mongodb://heroku_ggpvrzhg:heroku_ggpvrzhg@ds229474.mlab.com:29474/heroku_ggpvrzhg", { useNewUrlParser: true })
 else
     mongoose.connect(mongoURI, { useNewUrlParser: true });
 
