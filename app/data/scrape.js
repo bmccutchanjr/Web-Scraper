@@ -12,7 +12,7 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
 const chalk = require("chalk");
-const scrapeDb = require("./scrapeDb.js");
+const scrapeDb = require("./scrapedb.js");
 
 function scrape ()
 {   // Scrape the CBS News site
