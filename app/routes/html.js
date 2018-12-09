@@ -6,7 +6,7 @@ const chalk = require("chalk");
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
-const scrapeDb = require("../data/scrapeDb.js");
+const scrapeDb = require("../data/scrapedb.js");
 
 // Configure ExpressJS
 const app = express();
