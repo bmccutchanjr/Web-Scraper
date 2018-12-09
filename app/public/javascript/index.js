@@ -6,12 +6,18 @@ function theComments (data)
 
     for (let i=0; i<data.length; i++)
     {
+        const div = $("<div>")
+            .addClass("the-comment");
         const p1 = $("<p>").text(data[i].name + " says:");
-        const p2 = $("<p>").text(data[i].comment);
-        $(".comments-div")
+        const p2 = $("<p>")
+            .css("font-weight", "bold")
+            .text(data[i].comment);
+        div
             .append(p1)
-            .append(p2)
-            .append($("<hr>"));
+            .append(p2);
+
+        $(".comments-div")
+            .append(div);
     }
 }
 
@@ -71,7 +77,7 @@ $(document).ready(function()
 
     let id = "";
 
-    $(".articles-main").on("click", ".article-button", function(event)
+    $(".articles-main").on("click", ".comment-button", function(event)
     {   // generic event handler for the COMMENTS buttons
         event.preventDefault();
 
@@ -87,6 +93,14 @@ $(document).ready(function()
         {
             console.log(error)
         })
+    })
+
+    $("#article-button").click(function(event)
+    {   // event handler for ARTICLE-BUTTON
+        event.preventDefault();
+
+        $("#articles-section").css("display", "block");
+        $("#comments-section").css("display", "none");
     })
 
     $("#submit-button").click(function(event)
