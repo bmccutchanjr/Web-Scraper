@@ -4,13 +4,12 @@
         <div class="article-headline">
             {{headline}}
         </div>
-        {{!-- <div class="article-details"> --}}
-            <div class="article-text">
-                <a href={{href}} target="_blank">{{link}}</a><br>
-                {{meta}}
-            </div>
-            <button class="comment-button" value="{{_id}}">COMMENTS</button>
-        {{!-- </div> --}}
+
+        <div class="article-text">
+            <a href={{href}} target="_blank">{{link}}</a><br>
+            {{meta}}
+        </div>
+        <button class="comment-button" value="{{_id}}">COMMENTS</button>
 	</div>
 </div>
 {{/each}}
